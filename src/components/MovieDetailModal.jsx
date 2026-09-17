@@ -68,7 +68,7 @@ export default function MovieDetailModal({
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center overflow-y-auto bg-black/80 p-4 backdrop-blur-md sm:p-6"
+      className="fixed inset-0 z-100 flex items-center justify-center overflow-y-auto bg-black/80 p-4 backdrop-blur-md sm:p-6"
       onMouseDown={(event) => {
         if (event.target === event.currentTarget) {
           onClose();
@@ -97,7 +97,7 @@ export default function MovieDetailModal({
             className="h-full w-full object-cover object-center"
           />
 
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-black/10" />
+          <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-slate-950/40 to-black/10" />
 
           <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
             <h2
@@ -223,7 +223,7 @@ function MetaItem({
 
 function InfoRow({ icon, label, value }) {
   return (
-    <div className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] p-4">
+    <div className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/3 p-4">
       <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/5 text-orange-400">
         {icon}
       </div>

@@ -95,9 +95,7 @@ export default function MovieListing() {
 
   return (
     <main className="min-h-screen bg-slate-950 pb-24 pt-28">
-      {/* ============================================================
-          PAGE HEADER
-      ============================================================= */}
+
       <section className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
         <div className="max-w-3xl">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-orange-500/20 bg-orange-500/10 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-orange-300">
@@ -117,10 +115,6 @@ export default function MovieListing() {
             titles, and discover something new to watch.
           </p>
         </div>
-
-        {/* ========================================================
-            SEARCH
-        ========================================================= */}
         <div className="mt-10">
           <div className="relative max-w-3xl">
             <Search className="absolute left-5 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-500" />
@@ -132,7 +126,7 @@ export default function MovieListing() {
                 setSearchQuery(event.target.value)
               }
               placeholder="Search for a movie or show..."
-              className="h-14 w-full rounded-2xl border border-white/10 bg-white/[0.05] pl-14 pr-14 text-white outline-none backdrop-blur-md transition placeholder:text-slate-600 focus:border-orange-500/50 focus:bg-white/[0.07] focus:ring-2 focus:ring-orange-500/10"
+              className="h-14 w-full rounded-2xl border border-white/10 bg-white/5 pl-14 pr-14 text-white outline-none backdrop-blur-md transition placeholder:text-slate-600 focus:border-orange-500/50 focus:bg-white/[0.07] focus:ring-2 focus:ring-orange-500/10"
             />
 
             {searchQuery && (
@@ -148,9 +142,7 @@ export default function MovieListing() {
           </div>
         </div>
 
-        {/* ========================================================
-            RESULTS HEADER
-        ========================================================= */}
+
         <div className="mt-10 flex items-center justify-between border-b border-white/10 pb-4">
           <div>
             <h2 className="font-bold text-white">
@@ -173,9 +165,7 @@ export default function MovieListing() {
         </div>
       </section>
 
-      {/* ============================================================
-          MOVIE GRID
-      ========================================================= */}
+
       <section className="mx-auto max-w-7xl px-5 pt-8 sm:px-8 lg:px-10">
         {loading ? (
           <LoadingGrid />
@@ -194,7 +184,7 @@ export default function MovieListing() {
             onClear={handleClearSearch}
           />
         ) : (
-          <div className="grid grid-cols-1 gap-5 min-[480px]:grid-cols-2 sm:gap-6 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+          <div className="grid grid-cols-1 gap-5 min-[480px]:grid-cols-2 sm:gap-6 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4">
             {movies.map((movie) => (
               <MovieCard
                 key={movie.id}
@@ -206,9 +196,6 @@ export default function MovieListing() {
         )}
       </section>
 
-      {/* ============================================================
-          MODAL
-      ========================================================= */}
       <MovieDetailModal
         movie={selectedMovie}
         onClose={() => setSelectedMovie(null)}
@@ -217,9 +204,6 @@ export default function MovieListing() {
   );
 }
 
-/* ======================================================================
-   LOADING
-====================================================================== */
 
 function LoadingGrid() {
   return (
@@ -244,9 +228,6 @@ function LoadingGrid() {
   );
 }
 
-/* ======================================================================
-   ERROR
-====================================================================== */
 
 function ErrorState({ error, onRetry }) {
   return (
@@ -274,10 +255,6 @@ function ErrorState({ error, onRetry }) {
     </div>
   );
 }
-
-/* ======================================================================
-   EMPTY STATE
-====================================================================== */
 
 function EmptyState({ query, onClear }) {
   return (
